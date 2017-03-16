@@ -1,0 +1,79 @@
+<view class="content">
+<scroll-view class="collectionView" scroll-y="{{true}}">
+    <view style="height:26%;width:100%;padding-bottom:10px">
+    <!--轮播图-->
+        <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="2000" duration="350" style="width:100%;height:100%">
+            <block wx:for="{{imageArray}}">
+                <swiper-item style="width:100%;height:100%">
+                <image src="{{item.img}}" style="width:100%;height:100%" mode="scaleToFill" bindtap="runLoopImageDid" id="{{index}}"/>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view style="height:160px;width:100%;padding-bottom:1px;">
+         <view style="height:50%;width:100%;">
+            <view class="icon_back"wx:for-items="{{iconArray}}" wx:for-item="item" wx:if="{{index<4}}">
+                <image src="{{item.picture_url}}" style="width:60px;height:60px;display:table;margin-left:auto;margin-right:auto;padding-bottom:2px"></image>
+                <text style="display:table;margin-left:auto;margin-right:auto;font-size:12px;">{{item.title}}</text>
+            </view>
+        </view>
+        <view style="height:50%;width:100%;">
+           <view class="icon_back"wx:for-items="{{iconArray}}" wx:for-item="item" wx:if="{{index>=4}}">
+                <image src="{{item.picture_url}}" style="width:60px;height:60px;display:table;margin-left:auto;margin-right:auto;padding-bottom:2px"></image>
+                <text style="display:table;margin-left:auto;margin-right:auto;font-size:12px;">{{item.title}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view style="background-color:#ddd;width:100%;height:1px;"></view>
+
+<!--整个item-->
+    <view class="collectionView_item" wx:for-items="{{collectionDataSource}}" wx:for-item="item" wx:key="collectionDataSource" wx:if="{{index %2 == 0}}">
+        <view class="back_view">
+            <view class="super_left">
+                <view class="item_top"  bindtap="shopImageDidClick" id = "{{index}}">
+                <!--商品主图-->
+                    <image class="image" src="{{collectionDataSource[index].avatar_url}}"/>
+                </view>
+                <!--商品标题-->
+                <view class="title_back">
+                    <text class = "text">{{collectionDataSource[index].title}}</text>  
+                    <view style =  "padding-top:6px;height:30%;position:relative">
+                           <text class = "tags">精选</text>
+                        <image class = "addShopImage"  src="../resource/add.png"bindtap="addButtonClick" id="{{index}}"/>
+                        <text class = "numberShop">{{collectionDataSource[index].buy}}</text>
+                        <image class = "addShopImage" src="../resource/reduce.png" mode="aspectFill" bindtap="reduceButtonClick" id="{{index}}"/>
+                    </view> 
+                    <view style="position:relative;left:0;top:5%;">
+                             <text class = "price">¥{{collectionDataSource[index].price}}.00</text>
+                             <text class = "mark_price">{{collectionDataSource[index].marketPrice}}.00</text>
+                    </view>
+                </view>
+            </view>
+            <view style = "background-color:#ddd;height:100%;width:0.5%;float:left"></view>
+            <view class="super_right">
+                <view class="item_top">
+                <!--商品主图-->
+                    <image class="image" src="{{collectionDataSource[index + 1].avatar_url}}" bindtap="shopImageDidClick" id = "{{index + 1}}"/>
+                </view>
+                <!--商品标题-->
+                <view class="title_back">
+                    <text class = "text">{{collectionDataSource[index + 1].title}}</text>  
+                    <view style =  "padding-top:6px;height:30%;position:relative">
+                        <text class = "tags">精选</text>
+                        <image class = "addShopImage"  src="../resource/add.png"bindtap="addButtonClick" id="{{index + 1}}"/>
+                        <text class = "numberShop">{{collectionDataSource[index + 1].buy}}</text>
+                        <image class = "addShopImage" src="../resource/reduce.png" mode="aspectFill" bindtap="reduceButtonClick" id="{{index + 1}}"/>
+                    </view> 
+                    <view style="position:relative;left:0;top:5%;">
+                             <text class = "price">¥{{collectionDataSource[index + 1].price}}.00</text>
+                             <text class = "mark_price">{{collectionDataSource[index + 1].marketPrice}}.00</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--每个item之间的间隔线-->
+        <view class="line"></view>
+    </view>
+</scroll-view>
+</view>

@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<swiper indicator-dots="true" autoplay="true" interval="{{3000}}" duration="{{1000}}">
+   <block wx:for="{{swiperimgUrls}}">
+        <swiper-item>
+              <image src="../../images/{{item}}" mode="widthFix" class="slide-image"></image>
+        </swiper-item>
+   </block>
+</swiper>
+<!--分类-->
+<view class="space-between category" style="max-widht:100%; padding:10rpx;">
+   <view style="display:flex;flex-direction:column">
+       <view>
+           <image src="../../images/icon/home/huodong.png" class="image" mode="widthFix"></image>
+       </view>
+       <view class="title">邮轮</view>
+   </view>
+    <view style="display:flex;flex-direction:column">
+       <view>
+           <image src="../../images/icon/home/tuijian.png" class="image" mode="widthFix"></image>
+       </view>
+       <view class="title">自驾</view>
+   </view>
+      <view style="display:flex;flex-direction:column">
+       <view>
+           <image src="../../images/icon/home/new.png" class="image" mode="widthFix"></image>
+       </view>
+       <view class="title">门票</view>
+   </view>
+  <view style="display:flex;flex-direction:column">
+       <view>
+           <image src="../../images/icon/home/yuding.png" class="image" mode="widthFix"></image>
+       </view>
+       <view class="title">玩乐</view>
+   </view>
+</view>
+<!--区域-->
+<view class="flex" style="margin-top:10rpx;margin-bottom:10rpx;">
+   <view style="flex:1;padding-right:10rpx;" class="flex">
+       <image src="../../images/product/food3.jpg" mode="widthFix"></image>
+   </view>
+   <view style="flex:1;flex-direction:column;" class="flex">
+     <view style="flex:1;flex-direction:column;" class="flex">
+         <image src="../../images/product/food1.jpg" mode="widthFix"></image>
+     </view>
+      <view style="flex:1;">
+         <image src="../../images/product/food2.jpg" mode="widthFix"></image>
+     </view>
+   </view>
+</view>
+<!--区域-->
+<view class="flex">
+     <view style="flex:1;flex-direction:column;" class="flex">
+         <image src="../../images/product/swiper4.jpg" mode="widthFix"></image>
+     </view>
+</view>
+<view class="flex" style="background-color:#fff;flex-wrap:wrap;margin-top:10rpx;">
+   <block wx:for="{{products}}">
+         <view class="flex" style="flex-direction:column;width:375rpx;box-sizing:border-box;padding-left:10rpx;">
+               <view style="height:375rpx;">
+                   <image src="../../images/product/food5.jpg" mode="aspectFill"></image>
+               </view>
+               <view style="padding-left:10rpx;">{{item.name}}</view>
+               <view class="flex" style="justify-content:space-between;">
+                  <text style="font-size:0.8rem;color:#f60;padding-left:10rpx;">￥{{item.price}}</text>
+                  <text style="font-size:0.8rem;padding-left:10rpx;padding-right:10rpx;">销量:{{item.sales}}</text>
+               </view>
+         </view>
+   </block>
+</view>
+<view class="flex"style="margin-top:10rpx;">
+     <view style="flex:1;flex-direction:column;" class="flex">
+         <image src="../../images/product/swiper5.jpg" mode="widthFix"></image>
+     </view>
+</view>
+<view class="flex" style="margin-top:10rpx;">
+     <view style="flex:1;flex-direction:column;" class="flex">
+         <image src="../../images/product/swiper6.jpg" mode="widthFix"></image>
+     </view>
+</view>
+

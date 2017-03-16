@@ -1,0 +1,14 @@
+<view class="flex" style="background-color:#fff;flex-wrap:wrap;">
+   <block wx:for="{{products}}">
+         <view class="flex" style="flex-direction:column;width:375rpx;box-sizing:border-box;padding-left:10rpx;">
+               <view style="height:375rpx;">
+                   <image src="../../images/product/food4.jpg" mode="aspectFill"></image>
+               </view>
+               <view style="padding-left:10rpx;">{{item.name}}</view>
+               <view class="flex" style="justify-content:space-between;">
+                  <text style="font-size:0.8rem;color:#f60;padding-left:10rpx;">￥{{item.price}}</text>
+                  <text style="font-size:0.8rem;padding-left:10rpx;padding-right:10rpx;">销量:{{item.sales}}</text>
+               </view>
+         </view>
+   </block>
+</view>
