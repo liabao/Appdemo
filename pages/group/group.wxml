@@ -1,0 +1,35 @@
+<view class = "content">
+    <scroll-view  class = "right_catetory_list" scroll-y="{{true}}">
+        <view wx:for-items="{{leftDataSource}}" wx:for-item="item" class = "right_catetory_list_item" id = "{{index}}" bindtap = "rightListClick">
+            <view class = "right_catetory_right_line right_catetory_right_line_backcolor_red" wx:if="{{index == selectItem}}" ></view>
+            <view class = "right_catetory_right_line right_catetory_right_line_backcolor_ddd" wx:if="{{index != selectItem}}" ></view>
+            <view class = "right_catetory_list_text">{{item[0].category_name}}</view>
+            <view class = "right_cate_list_line"></view>
+        </view>
+    </scroll-view>
+     <scroll-view scroll-y="{{true}}" style="width:75%;height:100%;position:absolute;left:25%" wx:if="{rightDataSource.length > 0}">
+        <view wx:for-items="{{rightDataSource}}" wx:for-item="item" class = "item">
+            <view class = "item_left_image_back">
+                <image src="{{item.avatar_url}}" class = "item_left_image"></image>
+            </view>
+            <view class = "item_right_view_back">
+                <text class = "item_right_title">{{item.title}}</text>
+                <text class = "item_right_good_tag">促销</text>
+                <text class = "item_right_good_specification">{{item.specification}}</text>
+                <text class = "item_right_good_sale_count">{{"已售"+item.sale_count}}</text>
+                <view class="item_rice">
+                    <text class = "item_right_good_price">{{"¥"+item.price + ".00"}}</text>
+                    <text class = "item_right_good_mark_price">{{"¥"+item.marketPrice}}</text>
+                </view>
+                <image src="../resource/reduce.png" class = "item_right_reduce_image" bindtap="reduceImageClick" id = "{{index}}" ></image>
+                <text class = "item_right_good_buy_number">{{item.buy}}</text>
+                <image src="../resource/add.png" class = "item_right_add_image" bindtap="addImageDidClick" id = "{{index}}" ></image>
+            </view>
+            <view class = "item_line"/>
+        </view>
+    </scroll-view>
+    <view style="width:75%;height:100%;position:absolute;left:25%" wx:if="{{rightDataSource.length <= 0}}">
+        <view class = "none_data">对不起没有您要的数据</view>
+    </view>
+
+</view>
